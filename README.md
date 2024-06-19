@@ -34,7 +34,7 @@ Ensure you have the following installed on your machine:
 
 ### Installation
 
-- Fork the repository: https://github.com/jose-ng/api-node-basic.git
+- **Fork** the repository: https://github.com/jose-ng/api-node-basic.git
 
 ### Install dependencies:
 
@@ -47,3 +47,20 @@ npm install
 ```
 npm start
 ```
+
+# Tutorial
+
+## Table of contents
+
+1. [Introduction](#introduction)
+
+
+## Introduction <a name="introduction"></a>
+
+In this tutorial, you'll learn how to build a powerful backend for your application using Node.js, Express.js, GraphQL, Passport.js, and jsonwebtoken (JWT). We'll guide you through setting up a robust and secure API that forms the backbone of any modern web or mobile application. This stack allows us to create efficient, scalable, and maintainable server-side applications.
+
+We'll start by setting up our development environment with Node.js and Express.js, creating the foundation of our server. Next, we'll integrate Passport.js and JWT to implement secure authentication mechanisms, ensuring our API endpoints are protected from unauthorized access. Finally, we'll introduce GraphQL to enhance our data querying capabilities, providing a flexible and efficient alternative to traditional REST endpoints.
+
+By the end of this tutorial, you'll have a comprehensive understanding of how to develop a secure and high-performance backend for your app, ready to handle real-world demands. Join us on this journey and equip yourself with the skills to build modern, production-ready APIs.
+
+_Note: Each module or section will be in its own branch_
