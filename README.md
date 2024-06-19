@@ -1,36 +1,29 @@
 # Overview
 
-This repository contains an API built using Node.js and Express.js for handling HTTP requests, Passport.js for authentication, jsonwebtoken (JWT) for secure stateless authentication, and GraphQL for flexible data querying.
+This is Node.js API Development Tutorial, the repository contains an API built using Node.js and Express.js for handling HTTP requests, Passport.js for authentication, Json Web Tokens (JWT) for secure stateless authentication, Mongo.db/Mongoose, and GraphQL for flexible data querying.
 
 ## Features
 
 - User Authentication: Secure user authentication using Passport.js and JWT.
 - GraphQL API: Powerful and flexible data querying and mutation with GraphQL.
 - Role-Based Access Control: Manage different user roles and permissions.
-- RESTful Endpoints: Additional endpoints for traditional REST API interactions.
+- RESTful Endpoints: Additional endpoints for traditional REST API interactions and GraphQL for flexible data querying.
 - Error Handling: Comprehensive error handling for better developer experience.
 - Scalable Architecture: Modular and scalable codebase for future expansion.
-
-## Technologies Used
-
-- Node.js: A JavaScript runtime built on Chrome's V8 JavaScript engine.
-- Express.js: A minimal and flexible Node.js web application framework.
-- Passport.js: An authentication middleware for Node.js.
-- jsonwebtoken (JWT): A compact, URL-safe means of representing claims to be transferred between two parties.
-- GraphQL: A data query language and runtime to execute queries.
+- NoSQL: Database Mongo.db/Mongoose to stores data in flexible, JSON-like documents.
 
 ## Getting Started
 
 ### Prerequisites
 
-Ensure you have the Node.js installed on your machine:
+Ensure you have Node.js installed on your machine:
 
 - Recommended minimum version: 14.x
 - Highly recommended version: 18.x or 20.x (LTS)
 
 #### Important
 
-- Basic knowledge of NodeJs express and API Rest
+- Basic knowledge of Node.js, Express.js and API Rest
 
 ### Installation
 
