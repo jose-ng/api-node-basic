@@ -25,8 +25,12 @@ This repository contains an API built using Node.js and Express.js for handling 
 
 Ensure you have the following installed on your machine:
 
-- Node.js (v14 or later)
-- npm (v6 or later)
+- Recommended minimum version: 14.x
+- Highly recommended version: 18.x or 20.x (LTS)#### npm:
+
+#### Important
+
+- Basic knowledge of NodeJs express and API Rest
 
 ### Installation
 
