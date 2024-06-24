@@ -6,6 +6,8 @@ We'll start by setting up our development environment with Node.js and Express.j
 
 By the end of this tutorial, you'll have a comprehensive understanding of how to develop a secure and high-performance backend for your app.
 
+The API is for a dictionary app as example.
+
 ## Features
 
 - User Authentication: Secure user authentication using Passport.js and JWT.
@@ -54,6 +56,11 @@ _Note: Each module or section will be in a branch_
 1. [Module 1](Tutorial/Module-1)
     1. [Express basic concepts](Tutorial/Module-1/1_EXPRESS.md) `git checkout module-1/part-1`
     2. [RESTful API concepts](Tutorial/Module-1/2_RESTFUL.md) `git checkout module-1/part-1`
+
+
+# TODO
+
+- Handling error responses
 
 
 
