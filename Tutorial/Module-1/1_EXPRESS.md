@@ -1,3 +1,5 @@
+_NOTE: For a better understanding of the code change the branch_ `git checkout module-1/part-1`
+
 # Express.js
 
 ## Introduction

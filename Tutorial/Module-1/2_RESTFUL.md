@@ -1,3 +1,5 @@
+_NOTE: For a better understanding of the code change the branch_ `git checkout module-1/part-1`
+
 # RESTful API
 
 A **RESTful API** (Application Programming Interface) is a type of interface that follows the principles of REST (Representational State Transfer). REST is an architecture that uses web standards and protocols, such as HTTP, to enable communication between systems. RESTful APIs are widely used to build web services that interact with client applications, such as web and mobile apps.
@@ -46,6 +48,6 @@ A basic example of a RESTful API for managing users might have the following rou
 
 ## References
 
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 - https://aws.amazon.com/es/what-is/restful-api/
 - https://www.freecodecamp.org/news/build-consume-and-document-a-rest-api/
-- https://www.tutorialspoint.com/restful/index.htm
