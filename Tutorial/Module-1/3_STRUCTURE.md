@@ -1,3 +1,5 @@
+_NOTE: For a better understanding of the code change the branch_ `git checkout module-1/part-2`
+
 # Create structure 
 
 We make sure to create a folder and file structure for our code, considering what best suits our needs. In this example, we'll use parts of a simpler structure principle like LIFT, which is typically used in frontend Angular applications but is beneficial for our case. There are other frameworks and architectures like Clean Architecture that also provide robust solutions for organizing and maintaining code.
