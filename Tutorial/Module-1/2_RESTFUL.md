@@ -38,11 +38,11 @@ A basic example of a RESTful API for managing users might have the following rou
 ### Example of a RESTful API
 A basic example of a RESTful API for managing users might have the following routes and methods:
 
-- **GET** /users: Get a list of users.
-- **POST** /users: Create a new user.
-- **GET** /users/{id}: Get information about a specific user by their ID.
-- **PATCH** /users/{id}: Update information about a specific user by their ID.
-- **DELETE** /users/{id}: Delete a specific user by their ID.
+- **GET** /users Get a list of users.
+- **POST** /users Create a new user.
+- **GET** /users/:id Get information about a specific user by their ID.
+- **PATCH** /users/:id Update information about a specific user by their ID.
+- **DELETE** /users/:id Delete a specific user by their ID.
 
 ## References
 
