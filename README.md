@@ -1,6 +1,10 @@
 # Overview
 
-This is Node.js API Development Tutorial, the repository contains an API built using Node.js and Express.js for handling HTTP requests, Passport.js for authentication, Json Web Tokens (JWT) for secure stateless authentication, Mongo.db/Mongoose, and GraphQL for flexible data querying.
+In this tutorial, you'll learn how to build a powerful backend for your application using Node.js, Express.js, GraphQL, Passport.js, jsonwebtoken (JWT) and MongoDb using moongose. We are setting up a robust API that forms the backbone of any modern web or mobile application. This stack allows us to create efficient, scalable, and maintainable server-side applications.
+
+We'll start by setting up our development environment with Node.js and Express.js, creating the foundation of our server. Next, we'll integrate Passport.js and JWT to implement secure authentication mechanisms, ensuring our API endpoints are protected from unauthorized access. Finally, we'll introduce GraphQL to enhance our data querying capabilities, providing a flexible and efficient alternative to traditional REST endpoints.
+
+By the end of this tutorial, you'll have a comprehensive understanding of how to develop a secure and high-performance backend for your app.
 
 ## Features
 
@@ -45,15 +49,12 @@ npm start
 
 ## Table of contents
 
-1. [Introduction](#introduction)
+_Note: Each module or section will be in a branch_
+
+1. [Module 1](Tutorial/Module-1)
+    1. [Express basic concepts](Tutorial/Module-11_EXPRESS.md) `git checkout module-1/express`
+    2. [RESTful API concepts](Tutorial/Module-11_EXPRESS.md) `git checkout module-1/express`
 
 
-## Introduction <a name="introduction"></a>
 
-In this tutorial, you'll learn how to build a powerful backend for your application using Node.js, Express.js, GraphQL, Passport.js, and jsonwebtoken (JWT). We'll guide you through setting up a robust and secure API that forms the backbone of any modern web or mobile application. This stack allows us to create efficient, scalable, and maintainable server-side applications.
 
-We'll start by setting up our development environment with Node.js and Express.js, creating the foundation of our server. Next, we'll integrate Passport.js and JWT to implement secure authentication mechanisms, ensuring our API endpoints are protected from unauthorized access. Finally, we'll introduce GraphQL to enhance our data querying capabilities, providing a flexible and efficient alternative to traditional REST endpoints.
-
-By the end of this tutorial, you'll have a comprehensive understanding of how to develop a secure and high-performance backend for your app, ready to handle real-world demands. Join us on this journey and equip yourself with the skills to build modern, production-ready APIs.
-
-_Note: Each module or section will be in its own branch_

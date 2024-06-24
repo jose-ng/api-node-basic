@@ -46,5 +46,6 @@ A basic example of a RESTful API for managing users might have the following rou
 
 ## References
 
+- https://aws.amazon.com/es/what-is/restful-api/
 - https://www.freecodecamp.org/news/build-consume-and-document-a-rest-api/
 - https://www.tutorialspoint.com/restful/index.htm
