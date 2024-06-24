@@ -52,8 +52,8 @@ npm start
 _Note: Each module or section will be in a branch_
 
 1. [Module 1](Tutorial/Module-1)
-    1. [Express basic concepts](Tutorial/Module-11_EXPRESS.md) `git checkout module-1/express`
-    2. [RESTful API concepts](Tutorial/Module-11_EXPRESS.md) `git checkout module-1/express`
+    1. [Express basic concepts](Tutorial/Module-1/1_EXPRESS.md) `git checkout module-1/express`
+    2. [RESTful API concepts](Tutorial/Module-1/2_RESTFUL.md) `git checkout module-1/express`
 
 
 
