@@ -7,8 +7,8 @@ const wordService = new WordService();
 router.get('/',
   async (req, res, next) => {
     try {
-      const { query, skip, limit } = req.query;
-      const result = await wordService.getAll(query, skip, limit);
+      const { query, page, limit } = req.query;
+      const result = await wordService.getAll(query, page, limit);
       res.json(result);
     } catch (error) {
       next(error);

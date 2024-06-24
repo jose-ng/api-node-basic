@@ -1,7 +1,7 @@
 class WordService {
   constructor() { }
 
-  async getAll(query, skip = 0, limit = 10) {
+  async getAll(query, page = 0, limit = 10) {
     try {
       const words = [
         { id: "1", text_en: 'Red', text_es: 'Rojo' },
