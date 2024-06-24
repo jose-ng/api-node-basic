@@ -1,6 +1,6 @@
 # Overview
 
-In this tutorial, you'll learn how to build a powerful backend for your application using Node.js, Express.js, GraphQL, Passport.js, jsonwebtoken (JWT) and MongoDb using moongose. We are setting up a robust API that forms the backbone of any modern web or mobile application. This stack allows us to create efficient, scalable, and maintainable server-side applications.
+In this tutorial, you'll learn how to build a powerful backend for your application using Node.js, Express.js, GraphQL, Passport.js, and jsonwebtoken (JWT). We are setting up a robust API that forms the backbone of any modern web or mobile application. This stack allows us to create efficient, scalable, and maintainable server-side applications.
 
 We'll start by setting up our development environment with Node.js and Express.js, creating the foundation of our server. Next, we'll integrate Passport.js and JWT to implement secure authentication mechanisms, ensuring our API endpoints are protected from unauthorized access. Finally, we'll introduce GraphQL to enhance our data querying capabilities, providing a flexible and efficient alternative to traditional REST endpoints.
 
@@ -61,6 +61,7 @@ _Note: Each module or section will be in a branch_
 # TODO
 
 - Handling error responses
+- Add connection to a database
 
 
 

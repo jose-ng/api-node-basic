@@ -9,7 +9,6 @@ We make sure to create a folder and file structure for our code, considering wha
     ├── services/
     └── utils/
 
-
 ## LIFT
 
 - **Locate your code quickly:** This principle emphasizes the importance of being able to quickly locate code within the project. It involves having a well-organized and coherent folder and file structure so that developers can easily find any component, service, module, or other resource in the project.
@@ -20,7 +19,7 @@ We make sure to create a folder and file structure for our code, considering wha
 
 - **Try to stay DRY (Don't Repeat Yourself):** The DRY principle advocates for avoiding code duplication and promoting code reuse. In Angular, this can be achieved by using modules to encapsulate common functionalities, services for shared logic, and reusable components.
 
-### Use Routes and services folder
+### Create routes and services folders
 
 See the code.
 
