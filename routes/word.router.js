@@ -1,9 +1,16 @@
+/**
+ * This is the routing file for word-related API endpoints in a Node.js application.
+ * It defines the routes for CRUD operations on word entities and links them to the appropriate service methods.
+ */
 const WordService = require('../services/word.service');
 const express = require('express');
-
 const router = express.Router();
 const wordService = new WordService();
 
+/**
+ * Route to get a list of words.
+ * Supports query, pagination, and limit parameters.
+ */
 router.get('/',
   async (req, res, next) => {
     try {
@@ -13,8 +20,12 @@ router.get('/',
     } catch (error) {
       next(error);
     }
-  });
+  }
+);
 
+/**
+* Route to get a specific word by ID.
+*/
 router.get('/:id',
   async (req, res, next) => {
     try {
@@ -28,6 +39,9 @@ router.get('/:id',
   }
 );
 
+/**
+ * Route to add a new word.
+ */
 router.post(
   '/',
   async (req, res, next) => {
@@ -41,6 +55,9 @@ router.post(
   }
 );
 
+/**
+ * Route to update a word by ID.
+ */
 router.patch('/:id',
   async (req, res, next) => {
     try {
@@ -51,17 +68,22 @@ router.patch('/:id',
     } catch (error) {
       next(error);
     }
-  });
-
-router.delete('/:id', async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const response = await wordService.update(id);
-    res.status(200).json(response);
-  } catch (error) {
-    next(error);
   }
-});
+);
 
+/**
+* Route to delete a word by ID.
+*/
+router.delete('/:id',
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const response = await wordService.update(id);
+      res.status(200).json(response);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
 
 module.exports = router;
