@@ -14,6 +14,8 @@ const userService = new UserService();
 router.get('/',
   async (req, res, next) => {
     try {
+      const a = null;
+      a[0][3] = 1;
       const { query, page, limit } = req.query;
       const result = await userService.getAll(query, page, limit);
       res.json(result);

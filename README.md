@@ -57,11 +57,12 @@ _Note: Each module or section will be in a branch_
     1. [Express basic concepts](Tutorial/Module-1/1_EXPRESS.md) `git checkout module-1/part-1`
     2. [RESTful API concepts](Tutorial/Module-1/2_RESTFUL.md) `git checkout module-1/part-1`
     3. [Project structure](Tutorial/Module-1/3_STRUCTURE.md) `git checkout module-1/part-2`
-    3. [CRUD](Tutorial/Module-1/4_CRUD.md.md) `git checkout module-1/part-3`
+    4. [CRUD](Tutorial/Module-1/4_CRUD.md) `git checkout module-1/part-3`
+    5. [Middlewares](Tutorial/Module-1/5_MIDDLEWARES.md) `git checkout module-1/part-3`
 
 # TODO
 
-- Handling error responses
+- Improve error handler responses
 - Add connection to a database
 
 
