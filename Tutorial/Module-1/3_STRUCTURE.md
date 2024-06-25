@@ -2,7 +2,7 @@ _NOTE: For a better understanding of the code change the branch_ `git checkout m
 
 # Create structure 
 
-We make sure to create a folder and file structure for our code, considering what best suits our needs. In this example, we'll use parts of a simpler structure principle like LIFT, which is typically used in frontend Angular applications but is beneficial for our case. There are other frameworks and architectures like Clean Architecture that also provide robust solutions for organizing and maintaining code.
+We make sure to create a folder and file structure for our code, considering what best suits our needs. In this example, we'll use a clean Architecture that also provide robust solutions for organizing and maintaining code.
 
     /
     ├── config/
@@ -11,19 +11,33 @@ We make sure to create a folder and file structure for our code, considering wha
     ├── services/
     └── utils/
 
-## LIFT
+## Clean Architecture
 
-- **Locate your code quickly:** This principle emphasizes the importance of being able to quickly locate code within the project. It involves having a well-organized and coherent folder and file structure so that developers can easily find any component, service, module, or other resource in the project.
+![alt text](https://blog.cleancoder.com/uncle-bob/images/2012-08-13-the-clean-architecture/CleanArchitecture.jpg)
 
-- **Identify the code at a glance:** This principle means that code should be easily identifiable at first glance in terms of its purpose and function. For example, file names, folders, and variable names should be descriptive and meaningful, making it easy to quickly understand what each part of the code does.
+Our clean architecture is structured in distinct layers, each with specific responsibilities.
 
-- **Flat structure as much as possible:** This principle encourages maintaining a flat folder structure and avoiding excessive nesting. A flatter structure makes navigation easier and reduces complexity in locating and managing files.
+1. **Entities Layer**:
+   The innermost layer consists of core business entities such as products, users, and categories. This layer also includes other component libraries and objects that interact with external data sources, such as APIs or databases.
 
-- **Try to stay DRY (Don't Repeat Yourself):** The DRY principle advocates for avoiding code duplication and promoting code reuse. In Angular, this can be achieved by using modules to encapsulate common functionalities, services for shared logic, and reusable components.
+2. **Use Cases Layer**:
+   This layer encompasses the business logic of the application. It contains all the services that define the operations and interactions within our business domain.
+
+3. **Controllers Layer**:
+   Controllers provide the interface to access our business logic and entities. This layer includes routing and middleware, acting as a bridge between the use cases and the external interfaces.
+
+4. **External Applications Layer**:
+   The outermost layer comprises applications and interfaces that interact with our services. These applications consume the services provided by the inner layers, making the system accessible to end-users or other systems.
+
+By organizing our code in this manner, we ensure a clear separation of concerns, making our system more maintainable, scalable, and testable.
+
+---
+
+This improved version provides a clearer structure and highlights the benefits of using clean architecture principles.
 
 ### Create routes and services folders
 
-See the code.
+For now whe are only adding routing and services. See the code.
 
 **Note:** Config JSON for parsing application/json into _index.js_
 
@@ -34,6 +48,5 @@ app.use(express.json());
 
 ## References
 
-- https://bguiz.github.io/js-standards/angularjs/application-structure-lift-principle/
 - https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
 
