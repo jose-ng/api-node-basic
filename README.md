@@ -59,6 +59,7 @@ _Note: Each module or section will be in a branch_
     3. [Project structure](Tutorial/Module-1/3_STRUCTURE.md) `git checkout module-1/part-2`
     4. [CRUD](Tutorial/Module-1/4_CRUD.md) `git checkout module-1/part-3`
     5. [Middlewares](Tutorial/Module-1/5_MIDDLEWARES.md) `git checkout module-1/part-3`
+    6. [CORS](Tutorial/Module-1/6_CORS.md) `git checkout module-1/part-4`
 
 # TODO
 
