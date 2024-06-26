@@ -67,6 +67,7 @@ _Note: Each module or section will be in a branch_
 # TODO
 
 - Improve error handler responses
+- Add Authentication
 
 
 
