@@ -3,6 +3,8 @@
  * It defines the business logic for CRUD operations on word entities.
  */
 
+const Word = require("../models/db.schemas/word");
+
 class WordService {
   constructor() { }
 
@@ -15,30 +17,35 @@ class WordService {
    */
   async getAll(query, page = 0, limit = 10) {
     try {
-      // TODO: Implement word retrieval logic
-      const words = [
-        { id: "1", text_en: 'Red', text_es: 'Rojo' },
-        { id: "2", text_en: 'Green', text_es: 'Verde' },
-      ];
-      return words;
+      let q = {};
+      if (query)
+        q = {
+          $or: [
+            { text_en: { $regex: query, $options: "i" } },
+            { text_es: { $regex: query, $options: "i" } },
+          ],
+        };
+      const words = await Word.find(q)
+        .skip(page * limit)
+        .limit(limit)
+        .sort({ rating: "desc" })
+        .exec();
+
+      const totalWords = await Word.countDocuments(q).exec();
+      return { words, totalWords };
     } catch (err) {
       throw new Error(err);
     }
   }
 
-/**
- * Retrieves a word by its ID.
- * @param {string} id - The ID of the word to retrieve.
- * @returns {Object} - The word with the specified ID.
- */
+  /**
+   * Retrieves a word by its ID.
+   * @param {string} id - The ID of the word to retrieve.
+   * @returns {Object} - The word with the specified ID.
+   */
   async getById(id) {
     try {
-      // TODO: Implement word retrieval logic
-      const words = [
-        { id: "1", text_en: 'Red', text_es: 'Rojo' },
-        { id: "2", text_en: 'Green', text_es: 'Verde' },
-      ];
-      const word = words.find(i => i.id === id);
+      const word = await Word.findById(id).exec();
       return word;
     } catch (err) {
       throw new Error(err);
@@ -50,12 +57,16 @@ class WordService {
    * @param {Object} body - The data of the new word to add.
    * @returns {Object} - The newly added word.
    */
-  async add(body) {
+  async add({ text_es, text_en }) {
     try {
-      // TODO: Implement word creation logic
-      const word = { text_es: "Rojo", text_en: "Red" };
+      const word = await Word.create({
+        text_es,
+        text_en,
+        createAt: new Date().toISOString()
+      });
       return word;
     } catch (err) {
+      if (err && err.code === 11000) throw new Error(err.message);
       throw new Error(err);
     }
   }
@@ -68,8 +79,15 @@ class WordService {
    */
   async update(id, data) {
     try {
-      // TODO: Implement word update logic
-      return id;
+      console.log('id', id, 'data', data
+      );
+      const updated = await Word.findOneAndUpdate(
+        { _id: id },
+        { ...data },
+        { new: true }
+      ).exec();
+
+      return updated;
     } catch (err) {
       throw new Error(err);
     }
@@ -81,9 +99,11 @@ class WordService {
    * @returns {string} - The ID of the deleted word.
    */
   async delete(id) {
-    // TODO: Implement word deletion logic
     try {
-      return id;
+      await Word.findOneAndDelete({
+        _id: id
+      }).exec();
+      return true;
     } catch (err) {
       throw new Error(err);
     }

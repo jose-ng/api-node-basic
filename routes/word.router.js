@@ -15,6 +15,7 @@ router.get('/',
   async (req, res, next) => {
     try {
       const { query, page, limit } = req.query;
+      console.log('query', req.query);
       const result = await wordService.getAll(query, page, limit);
       res.json(result);
     } catch (error) {
@@ -78,7 +79,7 @@ router.delete('/:id',
   async (req, res, next) => {
     try {
       const { id } = req.params;
-      const response = await wordService.update(id);
+      const response = await wordService.delete(id);
       res.status(200).json(response);
     } catch (error) {
       next(error);
