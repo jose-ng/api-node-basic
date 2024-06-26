@@ -24,8 +24,7 @@ The API is for a dictionary app as example.
 
 Ensure you have Node.js installed on your machine:
 
-- Recommended minimum version: 14.x
-- Highly recommended version: 18.x or 20.x (LTS)
+- Recommended version: 18.x or 20.x (LTS)
 
 #### Important
 
