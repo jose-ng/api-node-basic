@@ -9,14 +9,9 @@ const UserSchema = new Schema(
       lowercase: true,
       required: true,
     },
-    password: {
-      type: String,
-      select: false,
-      required: true,
-    },
     firstName: String,
-    pSurName: String,
-    mSurname: String,
+    fSurName: String,
+    mSurName: String,
     bio: String,
     photoUrl: String,
     createAt: {

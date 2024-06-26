@@ -2,7 +2,6 @@
  * This is the service file for word-related operations in a Node.js application.
  * It defines the business logic for CRUD operations on word entities.
  */
-
 const Word = require("../models/db.schemas/word");
 
 class WordService {
@@ -31,8 +30,8 @@ class WordService {
         .sort({ rating: "desc" })
         .exec();
 
-      const totalWords = await Word.countDocuments(q).exec();
-      return { words, totalWords };
+      const total = await Word.countDocuments(q).exec();
+      return { words, total };
     } catch (err) {
       throw new Error(err);
     }
@@ -79,8 +78,6 @@ class WordService {
    */
   async update(id, data) {
     try {
-      console.log('id', id, 'data', data
-      );
       const updated = await Word.findOneAndUpdate(
         { _id: id },
         { ...data },

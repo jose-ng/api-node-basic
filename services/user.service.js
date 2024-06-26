@@ -2,6 +2,8 @@
  * This is the service file for user-related operations in a Node.js application.
  * It defines the business logic for CRUD operations on user entities.
  */
+const User = require("../models/db.schemas/user");
+
 class UserService {
   constructor() { }
 
@@ -14,30 +16,35 @@ class UserService {
    */
   async getAll(query, page = 0, limit = 10) {
     try {
-      // TODO: Implement user retrieval logic
-      const users = [
-        { id: "1", text_en: 'John', text_es: 'Doe' },
-        { id: "2", text_en: 'Ana', text_es: 'Lin' },
-      ];
-      return users;
+      let q = {};
+      if (query)
+        q = {
+          $or: [
+            { text_en: { $regex: query, $options: "i" } },
+            { text_es: { $regex: query, $options: "i" } },
+          ],
+        };
+      const words = await User.find(q)
+        .skip(page * limit)
+        .limit(limit)
+        .sort({ rating: "desc" })
+        .exec();
+
+      const total = await User.countDocuments(q).exec();
+      return { words, total };
     } catch (err) {
       throw new Error(err);
     }
   }
 
-/**
- * Retrieves a user by its ID.
- * @param {string} id - The ID of the user to retrieve.
- * @returns {Object} - The user with the specified ID.
- */
+  /**
+   * Retrieves a user by its ID.
+   * @param {string} id - The ID of the user to retrieve.
+   * @returns {Object} - The user with the specified ID.
+   */
   async getById(id) {
     try {
-      // TODO: Implement user retrieval logic
-      const users = [
-        { id: "1", text_en: 'John', text_es: 'Doe' },
-        { id: "2", text_en: 'Ana', text_es: 'Lin' },
-      ];
-      const user = users.find(i => i.id === id);
+      const user = await User.findById(id).exec();
       return user;
     } catch (err) {
       throw new Error(err);
@@ -49,40 +56,50 @@ class UserService {
   * @param {Object} body - The data of the new user to add.
   * @returns {Object} - The newly added user.
   */
-  async add(body) {
+  async add({ email, firstName }) {
     try {
-      // TODO: Implement user creation logic
-      const user = { text_en: 'John', text_es: 'Doe' };
+      const user = await User.create({
+        email,
+        firstName,
+        createAt: new Date().toISOString()
+      });
       return user;
     } catch (err) {
+      if (err && err.code === 11000) throw new Error(err.message);
       throw new Error(err);
     }
   }
 
-/**
- * Updates an existing user by its ID.
- * @param {string} id - The ID of the user to update.
- * @param {Object} data - The new data to update the user with.
- * @returns {string} - The ID of the updated user.
- */
+  /**
+   * Updates an existing user by its ID.
+   * @param {string} id - The ID of the user to update.
+   * @param {Object} data - The new data to update the user with.
+   * @returns {string} - The ID of the updated user.
+   */
   async update(id, data) {
     try {
-      return id;
-      // TODO: Implement user update logic
+      const updated = await User.findOneAndUpdate(
+        { _id: id },
+        { ...data },
+        { new: true }
+      ).exec();
+      return updated;
     } catch (err) {
       throw new Error(err);
     }
   }
 
-/**
- * Deletes a user by its ID.
- * @param {string} id - The ID of the user to delete.
- * @returns {string} - The ID of the deleted user.
- */
+  /**
+   * Deletes a user by its ID.
+   * @param {string} id - The ID of the user to delete.
+   * @returns {string} - The ID of the deleted user.
+   */
   async delete(id) {
     try {
-      // TODO: Implement user deletion logic
-      return id;
+      await User.findOneAndDelete({
+        _id: id
+      }).exec();
+      return true;
     } catch (err) {
       throw new Error(err);
     }

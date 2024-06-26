@@ -2,9 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const WordSchema = new Schema(
-  {
-    text_es: String,
-    text_en: String,
+  {    
+    text_en: {
+      type: String,
+      unique: true,
+      required: true,
+    },
+    text_es: {
+      type: String,
+      required: true,
+    },
     createAt: {
       type: Date,
       default: Date.now,
