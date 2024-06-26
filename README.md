@@ -59,7 +59,9 @@ _Note: Each module or section will be in a branch_
     4. [CRUD](Tutorial/Module-1/4_CRUD.md) `git checkout module-1/part-3`
     5. [Middlewares](Tutorial/Module-1/5_MIDDLEWARES.md) `git checkout module-1/part-3`
     6. [CORS](Tutorial/Module-1/6_CORS.md) `git checkout module-1/part-4`
-
+2. [Module 2](Tutorial/Module-2)
+    1. [Install MongoDB](Tutorial/Module-2/1_INSTALL_MONGODB.md)
+    2. [Connection to a data base](Tutorial/Module-2/2_CONNECT_TO_DB.md)
 # TODO
 
 - Improve error handler responses
