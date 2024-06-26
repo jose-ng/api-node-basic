@@ -20,6 +20,10 @@ We update the services in `services/user.service.js` and `services/word.service.
 
 By organizing our code into models and services, we follow a clean architecture pattern that separates the data structure definitions from the business logic, making our API more maintainable and scalable.
 
+## API request client collection
+
+You can find it in `Tutorial/Collections/thunder-collection_dictionary_db.json`
+
 ## References
 
 - https://mongoosejs.com/docs/queries.html

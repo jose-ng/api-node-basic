@@ -1,0 +1,158 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "dictionary_db",
+    "collectionId": "3e00d09b-b831-4c2d-a392-7809612958b0",
+    "dateExported": "2024-06-26T20:53:18.105Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "2cd2f0b2-eb75-4fe4-aaca-c87caea0afd2",
+            "colId": "3e00d09b-b831-4c2d-a392-7809612958b0",
+            "containerId": "",
+            "name": "Add Word",
+            "url": "{{url}}/api/word",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-06-26T19:13:50.226Z",
+            "modified": "2024-06-26T20:28:40.920Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"text_en\": \"Purple\",\n    \"text_es\": \"azul\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "ce1930e2-f672-463b-86ec-47cac1886329",
+            "colId": "3e00d09b-b831-4c2d-a392-7809612958b0",
+            "containerId": "",
+            "name": "Get Words",
+            "url": "{{url}}/api/word?query=gre",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-06-26T19:18:12.112Z",
+            "modified": "2024-06-26T19:20:58.405Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "query",
+                    "value": "gre",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "c838c47c-3f5f-4db5-8fbe-504688b87f9f",
+            "colId": "3e00d09b-b831-4c2d-a392-7809612958b0",
+            "containerId": "",
+            "name": "Get Word",
+            "url": "{{url}}/api/word/667c6935a43ab9dccd30ade3",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-06-26T19:21:47.192Z",
+            "modified": "2024-06-26T19:22:01.216Z",
+            "headers": []
+        },
+        {
+            "_id": "d285d86d-6a22-4188-b3dd-1ff962cb6a87",
+            "colId": "3e00d09b-b831-4c2d-a392-7809612958b0",
+            "containerId": "",
+            "name": "Update Word",
+            "url": "{{url}}/api/word/667c6b4623c8a821670b955d",
+            "method": "PATCH",
+            "sortNum": 60000,
+            "created": "2024-06-26T19:26:24.032Z",
+            "modified": "2024-06-26T20:41:14.109Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"text_en\": \"Blue2\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "a19be827-a43e-4be4-98c1-3994c3c72cb3",
+            "colId": "3e00d09b-b831-4c2d-a392-7809612958b0",
+            "containerId": "",
+            "name": "Delete Word",
+            "url": "{{url}}/api/word/667c6b4623c8a821670b955d",
+            "method": "DELETE",
+            "sortNum": 65000,
+            "created": "2024-06-26T19:22:54.034Z",
+            "modified": "2024-06-26T19:26:05.215Z",
+            "headers": []
+        },
+        {
+            "_id": "bdf61e30-59b6-4144-99f5-07326bfb41ac",
+            "colId": "3e00d09b-b831-4c2d-a392-7809612958b0",
+            "containerId": "",
+            "name": "Add User",
+            "url": "{{url}}/api/user",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-06-26T20:28:59.098Z",
+            "modified": "2024-06-26T20:46:42.798Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"email\": \"shimozurdo33@gmail.com\",\n    \"firstName\": \"Joseph33\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "daa6c9b5-065f-4426-8e67-50203d9e4a46",
+            "colId": "3e00d09b-b831-4c2d-a392-7809612958b0",
+            "containerId": "",
+            "name": "Get Users",
+            "url": "{{url}}/api/user",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-06-26T20:30:56.244Z",
+            "modified": "2024-06-26T20:31:21.759Z",
+            "headers": []
+        },
+        {
+            "_id": "dec53037-25fd-496f-9732-b61cd9ae246b",
+            "colId": "3e00d09b-b831-4c2d-a392-7809612958b0",
+            "containerId": "",
+            "name": "Get User",
+            "url": "{{url}}/api/user/667c7a75ce444c217c319113",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-06-26T20:32:21.764Z",
+            "modified": "2024-06-26T20:32:42.477Z",
+            "headers": []
+        },
+        {
+            "_id": "6810e891-e013-4d67-a4fd-3f1cf511dfd8",
+            "colId": "3e00d09b-b831-4c2d-a392-7809612958b0",
+            "containerId": "",
+            "name": "Update User",
+            "url": "{{url}}/api/user/667c7a75ce444c217c319113",
+            "method": "PATCH",
+            "sortNum": 100000,
+            "created": "2024-06-26T20:32:49.488Z",
+            "modified": "2024-06-26T20:39:37.610Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"fSurName\": \"Blue\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "dfb4c383-c27f-4aeb-8f90-e689f65a9d79",
+            "colId": "3e00d09b-b831-4c2d-a392-7809612958b0",
+            "containerId": "",
+            "name": "Delete User",
+            "url": "{{url}}/api/user/667c7e329def81a90784fe8d",
+            "method": "DELETE",
+            "sortNum": 110000,
+            "created": "2024-06-26T20:41:58.797Z",
+            "modified": "2024-06-26T20:46:58.418Z",
+            "headers": []
+        }
+    ],
+    "ref": "MoN59zTScN-1L1nTgHjcZ__xynVNb4DPMEZ4lf3XqKQVuM2s5FxnWL0vlYASmVSzDoYxcuDjVTrFMWK-TWihBQ"
+}
