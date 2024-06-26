@@ -1,4 +1,4 @@
-_NOTE: For a better understanding of the code change to the branch_ `git checkout module-2/part-2`
+_NOTE: For a better understanding of the code change to the branch_ `git checkout module-2/part-3`
 
 # Database Models
 
