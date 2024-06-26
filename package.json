@@ -12,14 +12,12 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.19.2",
-    "install": "^0.13.0",
-    "mongoose": "^8.4.4",
-    "npm": "^10.8.1"
+    "cors": "2.8.5",
+    "express": "4.19.2",
+    "mongoose": "8.4.4"
   },
   "devDependencies": {
-    "dotenv": "^16.4.5",
+    "dotenv": "16.4.5",
     "eslint": "9.5.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "5.1.3",
