@@ -1,33 +1,47 @@
 const express = require('express');
-const mongoose = require('mongoose');
-
 const app = express();
-const port = 3000;
+const cors = require('cors');
+const server = require('http').Server(app);
+const routerApi = require('./routes');
+const { connect } = require('./utils/connectMongo');
+const { errorHandler } = require('./middlewares/error.handler');
 
-// Connect to MongoDB with Mongoose
-mongoose.connect('mongodb://0.0.0.0:27017/dictionary_db');
+// start server
+async function startServer() {
+  try {
+    app.use(express.json());
 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'Connection error:'));
-db.once('open', () => {
-  console.log('Connected to MongoDB');
-});
+    // cors
+    const whitelist = [
+      'http://localhost:3000'
+    ];
+    const corsOptions = {
+      origin: (origin, callback) => {
+        if (whitelist.indexOf(origin) !== -1 || !origin) {
+          callback(null, true);
+        } else {
+          callback(new Error('Not allowed by CORS'));
+        }
+      },
+    };
+    app.use(cors(corsOptions));
 
-// Define a Mongoose schema and model
-const Schema = mongoose.Schema;
-const WordSchema = new Schema({
-  text_es: String,
-  test_en: String,
-});
+    // API's
+    routerApi(app);
 
-const wordModel = mongoose.model('word', WordSchema);
+    // middlewares
+    app.use(errorHandler);
 
-// Define a route in Express
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+    // server
+    app.disable('x-powered-by');
 
-// Start the Express server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+    // Connect MongoDB
+    await connect();
+    return app;
+  } catch (err) {
+    console.log(err);
+    throw new Error('Internal server error', err);
+  }
+}
+
+module.exports = { server, startServer };
