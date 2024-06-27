@@ -17,17 +17,17 @@ const {
 const resolvers = {
   Query: {
     // Users
-    // user: getUserById,
-    // users: getUsers,
+    user: getUserById,
+    users: getUsers,
     // Words
     word: getWordById,
     words: getWords,
   },
   Mutation: {
     // Users
-    // addUser,
-    // updateUser,
-    // deleteUser,
+    addUser,
+    updateUser,
+    deleteUser,
     // Words
     addWord,
     updateWord,

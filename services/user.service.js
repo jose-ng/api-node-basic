@@ -15,23 +15,25 @@ class UserService {
    * @returns {Array} - A list of users.
    */
   async getAll(query, page = 0, limit = 10) {
+    console.log("🚀 ~ UserService ~ getAll ~ query:", query)
     try {
       let q = {};
       if (query)
         q = {
           $or: [
-            { text_en: { $regex: query, $options: "i" } },
-            { text_es: { $regex: query, $options: "i" } },
+            { firstName: { $regex: query, $options: "i" } },
+            { fSurName: { $regex: query, $options: "i" } },
+            { mSurName: { $regex: query, $options: "i" } }
           ],
         };
-      const words = await User.find(q)
+      const users = await User.find(q)
         .skip(page * limit)
         .limit(limit)
         .sort({ rating: "desc" })
         .exec();
 
       const total = await User.countDocuments(q).exec();
-      return { words, total };
+      return { list: users, total };
     } catch (err) {
       throw new Error(err);
     }

@@ -1,10 +1,10 @@
 type Query {
-  user(username: ID!): User!
-  users(query: String): [User]!
+  user(id: ID!): User!
+  users(query: String, page: String, limit: String): UsersResponse!
 }
 
 type Mutation {
-  createUser(dto: AddUserDto!): User!
+  addUser(dto: AddUserDto!): User!
   updateUser(id: ID!, dto: UpdateUserDto!): User
   deleteUser(id: ID!): Boolean
 }
@@ -17,12 +17,18 @@ type User {
   mSurname: String
   bio: String
   photoUrl: String
-  createAt: Date
+  createAt: DateTime
+}
+
+type UsersResponse {
+  list: [User]
+  total: Int!
 }
 
 input AddUserDto {
   email: String!
   firstName: String!
+  password: String!
 }
 
 input UpdateUserDto {

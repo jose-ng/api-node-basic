@@ -272,7 +272,7 @@ const useGraphQL = async (app) => {
 module.exports = useGraphQL;
 ```
 
-**Note:** To use the `Date` type in GraphQL schemas, we can use the `graphql-scalars` library.
+**Note:** To use the `DateTime` type in GraphQL schemas, we can use the `graphql-scalars` library.
 
 ```bash
 npm i graphql-scalars

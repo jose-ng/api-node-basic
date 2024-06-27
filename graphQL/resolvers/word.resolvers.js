@@ -14,11 +14,12 @@ function addWord(_, { dto }) {
 }
 
 function updateWord(_, { id, dto }) {
-  return wordService.update(id, dto.data);
+  console.log(id, dto);
+  return wordService.update(id, dto);
 }
 
 function deleteWord(_, { id }) {
-  return wordService.add(id);
+  return wordService.delete(id);
 }
 
 module.exports = {

@@ -1,6 +1,6 @@
 type Query {
   word(id: ID!): Word!
-  words(query: String, skip: Int, limit: Int): WordsResponse
+  words(query: String, page: Int, limit: Int): WordsResponse!
 }
 
 type Mutation {
@@ -13,11 +13,11 @@ type Word {
   id: ID!  
   text_es: String!
   text_en: String!   
-  createAt: Date
+  createAt: DateTime
 }
 
 type WordsResponse {
-  list: [Word]!
+  list: [Word]
   total: Int!
 }
 

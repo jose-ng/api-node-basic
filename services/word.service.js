@@ -31,7 +31,7 @@ class WordService {
         .exec();
 
       const total = await Word.countDocuments(q).exec();
-      return { words, total };
+      return { list: words, total };
     } catch (err) {
       throw new Error(err);
     }
