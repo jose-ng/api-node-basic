@@ -6,6 +6,8 @@ _NOTE: For a better understanding of the code change to the branch_ `git checkou
 
 GraphQL is an open source server-side technology which was developed by Facebook to optimize RESTful API calls. It is an execution engine and a data query language. In this chapter, we discuss about the advantages of using GraphQL.
 
+GraphQL is a query language for your API, and a server-side runtime for executing queries using a type system you define for your data. GraphQL isn’t tied to any specific database or storage engine and is instead backed by your existing code and data.
+
 ## Why GraphQL
 
 RESTful APIs follow clear and well-structured resource-oriented approach. However, when the data gets more complex, the routes get longer. Sometimes it is not possible to fetch data with a single request. This is where GraphQL comes handy. GraphQL structures data in the form of a graph with its powerful query syntax for traversing, retrieving, and modifying data.
@@ -112,60 +114,53 @@ The output of the above query contains exactly those fields we have requested fo
 }
 ```
 
-### Describe what’s possible with a type system
+To achieve this result it is important to understand the following concepts.
 
-GraphQL is strongly typed and the queries are based on fields and their associated data types. If there is type mismatch in a GraphQL query, server applications return clear and helpful error messages. This helps in smooth debugging and easy detection of bugs by client applications. GraphQL also provides client side libraries that can help in reducing explicit data conversion and parsing.
+## Type Definitions (typeDefs)
 
-An example of the Student and College data types is given below
-
-```javascript
-type Query {
-   students:[Student]
-}
-
-type Student {
-   id:ID!
-   firstName:String
-   lastName:String
-   fullName:String
-   college:College
-}
-
-type College {
-   id:ID!
-   name:String
-   location:String
-   rating:Float
-   students:[Student]
-}
-```
-
-### Type Definitions and Resolvers
-
-In GraphQL, type definitions (`typeDefs`) and resolvers are fundamental concepts that work together to define and execute queries and mutations in a GraphQL API.
-
-#### Type Definitions (typeDefs)
+GraphQL is strongly typed and the queries are based on fields and their associated data types. If there is type mismatch in a GraphQL query, server applications return clear and helpful error messages. This helps in smooth debugging and easy detection of bugs by client applications.
 
 Type definitions define the structure of the GraphQL schema. They include types, queries, mutations, and their respective fields. Essentially, this is the "contract" specifying what operations are available and what data can be queried or modified.
 
-```javascript
-const typeDefs = gql`
-  type User {
-    id: ID!
-    name: String
-    email: String
-  }
+### Queries in TypeDefs
 
+In GraphQL, queries are used to read or fetch data from the server. In the type definitions (typedefs), a `Query` type is defined to specify the available read operations. Each field within the `Query` type represents a different endpoint that can be queried by clients. These fields determine the shape and return type of the data that can be requested.
+
+### Mutations in TypeDefs
+
+Mutations in GraphQL are used to modify data on the server, such as creating, updating, or deleting data. In typedefs, a `Mutation` type is defined to specify the available write operations. Each field within the `Mutation` type represents an operation that can change the state of data on the server. These fields determine the input parameters required for the mutation and the return type of the operation.
+
+### Custom Types and Inputs
+
+Custom object types define the shape of the data in your schema, specifying what fields an object has and their types. Input types are used to structure input data for mutations and queries, encapsulating all necessary parameters in a single object. This modular approach allows for a clear and organized schema, facilitating efficient and accurate data manipulation.
+
+Continuing with our application, we need type definitions for every entity in our application, depending on our needs. Here is an example of a types definition.
+
+```graphql
+const typeDefs = gql`
   type Query {
     getUser(id: ID!): User
     listUsers: [User]
   }
 
   type Mutation {
-    createUser(name: String!, email: String!): User
+    createUser(dto: AddUserDto!): User
     updateUser(id: ID!, name: String, email: String): User
     deleteUser(id: ID!): Boolean
   }
+
+  # custom types
+  type User {
+    id: ID!
+    name: String
+    email: String
+  }
+
+  input AddUserDto {
+    name: String!
+    email: String!
+  }  
+  # custom types
 `;
 ```
 
@@ -178,35 +173,18 @@ const users = [];
 
 const resolvers = {
   Query: {
-    getUser: (parent, args) => users.find(user => user.id === args.id),
-    listUsers: () => users,
+    getUser: (parent, { id }) => userService.GetUser(id),
+    listUsers: (parent) => userService.getAllUsers(),
   },
   Mutation: {
-    createUser: (parent, args) => {
-      const newUser = {
-        id: String(users.length + 1),
-        name: args.name,
-        email: args.email,
-      };
-      users.push(newUser);
-      return newUser;
+    createUser: (parent, { dto }) => {
+      return userService.create(dto);
     },
-    updateUser: (parent, args) => {
-      const user = users.find(user => user.id === args.id);
-      if (user) {
-        user.name = args.name || user.name;
-        user.email = args.email || user.email;
-        return user;
-      }
-      return null;
+    updateUser: (parent, { id, data }) => {
+      return userService.update(id, data);
     },
-    deleteUser: (parent, args) => {
-      const index = users.findIndex(user => user.id === args.id);
-      if (index !== -1) {
-        users.splice(index, 1);
-        return true;
-      }
-      return false;
+    deleteUser: (parent, { id }) => {
+      return userService.delete(id);
     },
   },
 };
@@ -216,10 +194,6 @@ In this example:
 
 - `typeDefs` define the `User` type, the queries `getUser` and `listUsers`, and the mutations `createUser`, `updateUser`, and `deleteUser`.
 - `resolvers` provide the logic to handle these queries and mutations, interacting with an in-memory list of users.
-
-### Queries
-
-In GraphQL, all queries are made via POST requests to the exposed endpoint, and every request returns a 202 status.
 
 ### Type System
 
@@ -231,9 +205,9 @@ GraphQL includes a set of built-in scalar types ready to use:
 - `Boolean`: `true` or `false`.
 - `ID`: Represents a unique identifier, often used to fetch an object or as a key for a cache. It serializes in the same way as a string but indicates that it is not meant to be human-readable.
 
-### Nullability and Lists
+### Nullability and Lists in GraphQL
 
-In GraphQL, you don't define a new type when you want to return a list of items from a field; you simply apply a list modifier to that type.
+In GraphQL, you don't define a new type when you want to return a list of items from a field; you simply apply a list modifier to that type. For example:
 
 ```graphql
 type ObjectType {
@@ -242,7 +216,7 @@ type ObjectType {
 }
 ```
 
-`Non-null` is also a modifier, and it can be applied to lists and other types in nested ways:
+Non-null is also a modifier, and you can apply list and non-null modifiers in an arbitrarily nested manner, especially since lists can be nested:
 
 ```graphql
 type ObjectType {
@@ -254,30 +228,56 @@ type ObjectType {
 }
 ```
 
-### Object Types and Fields
+So, what does it mean to have non-null inside or outside a list? It decides whether the non-null applies to the list element versus the list itself.
 
-GraphQL allows defining custom object types:
+For example, you can have a list of non-null strings:
 
-```javascript
-type Book {
-  title: String
-  author: Author
-}
-
-type Author {
-  name: String
-  books: [Book]
-}
-
-# used to receive an object of data
-input AddUserDto {
-  email: String!
-  password: UserPasswordType!
-  rPassword: UserPasswordType!
-}
+```graphql
+drinkSizes: [String!]
 ```
 
-### Apollo Server
+This means the list itself can be null, but it cannot have any null members. For example, in JSON:
+
+```json
+drinkSizes: null // valid
+drinkSizes: [] // valid
+drinkSizes: ["small", "large"] // valid
+drinkSizes: ["small", null, "large"] // error
+```
+
+Now, let's define a list of nullable strings:
+
+```graphql
+drinkSizes: [String]!
+```
+
+This means the list itself cannot be null, but it can contain null values:
+
+```json
+drinkSizes: null // error
+drinkSizes: [] // valid
+drinkSizes: ["small", "large"] // valid
+drinkSizes: ["small", null, "large"] // valid
+```
+
+Finally, we can combine the two:
+
+```graphql
+drinkSizes: [String!]!
+```
+
+This is the most restrictive:
+
+```json
+drinkSizes: null // error
+drinkSizes: [] // valid
+drinkSizes: ["small", "large"] // valid
+drinkSizes: ["small", null, "large"] // error
+```
+
+An interesting conclusion here is that there is no way to specify that the list cannot be empty: an empty list (`[]`) is always valid, regardless of whether the list or the items are non-null.
+
+## Apollo Server
 
 Apollo Server is a standalone, spec-compliant GraphQL server. It works independently of any web framework and is designed to be as easy to set up as possible. Here are some key points:
 
