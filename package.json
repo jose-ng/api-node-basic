@@ -13,10 +13,11 @@
   "description": "",
   "dependencies": {
     "@apollo/server": "^4.10.4",
+    "@graphql-tools/load-files": "^7.0.0",
     "cors": "2.8.5",
     "express": "4.19.2",
     "graphql": "^16.9.0",
-    "graphql-tag": "^2.12.6",
+    "graphql-scalars": "^1.23.0",
     "mongoose": "8.4.4"
   },
   "devDependencies": {

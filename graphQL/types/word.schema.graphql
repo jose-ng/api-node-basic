@@ -1,0 +1,27 @@
+type Query {
+  word(id: ID!): Word!
+  words(query: String, skip: Int, limit: Int): WordsResponse
+}
+
+type Mutation {
+  addWord(dto: AddWordDto!): Word!
+  updateWord(id: ID!, dto: AddWordDto!): Word
+  deleteWord(id: ID!): Boolean
+}
+
+type Word {
+  id: ID!  
+  text_es: String!
+  text_en: String!   
+  createAt: Date
+}
+
+type WordsResponse {
+  list: [Word]!
+  total: Int!
+}
+
+input AddWordDto {
+  text_es: String!
+  text_en: String!
+}

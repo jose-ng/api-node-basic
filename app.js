@@ -5,6 +5,7 @@ const server = require('http').Server(app);
 const routerApi = require('./routes');
 const { connect } = require('./utils/connectMongo');
 const { errorHandler } = require('./middlewares/error.handler');
+const useGraphQL = require('./graphQL');
 
 // start server
 async function startServer() {
@@ -25,6 +26,9 @@ async function startServer() {
       },
     };
     app.use(cors(corsOptions));
+
+     // GraphQL
+     await useGraphQL(app);
 
     // API's
     routerApi(app);

@@ -66,11 +66,13 @@ _Note: Each module or section will be in a branch_
     4. [Add data base schemas and update the services](Tutorial/Module-2/4_DATA_BASE_SCHEMAS.md) `git checkout module-2/part-3`
 3. [Module 3](Tutorial/Module-3)
     1. [GraphQL](Tutorial/Module-3/1_GRAPHQL.md) `git checkout module-3/part-1`
+    2. [GraphQL implementation](Tutorial/Module-3/2_GRAPHQL_IMPLEMENTATION.md) `git checkout module-3/part-2`
 
 # TODO
 
-- Improve error handler responses
-- Add Authentication
+- **Add request object schema validation**
+- **Add HTTP-friendly error objects handler**
+- **Add authentication and authorization**
 
 
 
