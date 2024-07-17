@@ -60,8 +60,14 @@ _Note: Each module or section will be in a branch_
     5. [Middlewares](Tutorial/Module-1/5_MIDDLEWARES.md) `git checkout module-1/part-3`
     6. [CORS](Tutorial/Module-1/6_CORS.md) `git checkout module-1/part-4`
 2. [Module 2](Tutorial/Module-2)
-    1. [Install MongoDB](Tutorial/Module-2/1_INSTALL_MONGODB.md)`git checkout module-2/part-1`
-    2. [Connection to a data base](Tutorial/Module-2/2_CONNECT_TO_DB.md)`git checkout module-2/part-1`
+    1. [Install MongoDB](Tutorial/Module-2/1_INSTALL_MONGODB.md) `git checkout module-2/part-1`
+    2. [Connection to a data base](Tutorial/Module-2/2_CONNECT_TO_DB.md) `git checkout module-2/part-1`
+    3. [Add connection to our project](Tutorial/Module-2/3_CONFIGURE_CONNECTION.md) `git checkout module-2/part-2`
+    4. [Add data base schemas and update the services](Tutorial/Module-2/4_DATA_BASE_SCHEMAS.md) `git checkout module-2/part-3`
+3. [Module 3](Tutorial/Module-3)
+    1. [GraphQL](Tutorial/Module-3/1_GRAPHQL.md) `git checkout module-3/part-1`
+    2. [GraphQL implementation](Tutorial/Module-3/2_GRAPHQL_IMPLEMENTATION.md) `git checkout module-3/part-2`
+
 # TODO
 
 - **Add request object schema validation**
