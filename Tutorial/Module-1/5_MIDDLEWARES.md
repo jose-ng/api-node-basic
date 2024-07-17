@@ -83,7 +83,7 @@ module.exports = {
 - **withErrorStack**: Enhances error messages with stack traces in development mode to aid debugging.
 - **errorHandler**: Standardizes the error response format and ensures that appropriate HTTP status codes are sent, providing necessary information to the client while preventing sensitive information leakage in production.
 
-### Implementation in `index.js`:
+### Implementation
 
 Don't forget to add the middleware to your Express application in `index.js`:
 
@@ -95,4 +95,4 @@ app.use(errorHandler);
 
 ### References:
 
-- https://medium.com/@arorashivansh2661992/middleware-in-node-js-ed4eee917ff0
+- https://expressjs.com/en/guide/using-middleware.html

@@ -4,14 +4,15 @@ _NOTE: For a better understanding of the code change the branch_ `git checkout m
 
 ## Introduction
 
-**Express.js** is a web application framework for Node.js designed to build web applications and APIs. It is fast, minimalist, and flexible, providing a robust set of features for web and mobile applications. Its minimalist approach allows developers to extend its capabilities using middleware and additional modules as needed.
+**Express.js** is a web application framework for Node.js designed to build web applications and APIs. It is fast, minimalist, and flexible, providing a robust set of features for web applications and it easy to create servers and handle HTTP requests easily. Its minimalist approach allows developers to extend its capabilities using middleware and additional modules as needed.
 
 ### Installing Express.js
 
-   Run the following command to install Express.js as a dependency of your project:
-   ```bash
-   npm install express
-   ```
+Run the following command to install Express.js as a dependency of your project:
+
+```bash
+npm install express
+```
 
 ### Basic Usage Rules
 
@@ -24,27 +25,29 @@ Create a file called `index.js` and add the following code:
 ```javascript
 // Import the express module
 const express = require('express');
-   
+
 // Create an instance of an Express application
 const app = express();
-   
+
 // Define a basic route that responds with "Hello World!"
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+  res.send('Hello World!');
 });
-   
-   // Set the port the server will listen on
+
+// Set the port the server will listen on
 const port = 3000;
 app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`);
+  console.log(`Server listening at http://localhost:${port}`);
 });
 ```
 
 2. **Run the Server**:
-In the terminal, run:
+   In the terminal, run:
+
 ```bash
 node index.js
 ```
+
 Open your browser and go to `http://localhost:3000` to see the "Hello World!" message.
 
 Express.js is powerful and extensible, suitable for both small and large applications, providing a solid foundation for backend development.
@@ -56,10 +59,10 @@ In Express.js, routes are fundamental components that define how your applicatio
 ### How Routes Work
 
 1. **Defining Routes**:
-   Routes are defined using methods on the Express application object (`app`). Each method corresponds to an HTTP request method. For example, `app.get()` for GET requests, `app.post()` for POST requests, and so on.
+Routes are defined using methods on the Express application object (`app`). Each method corresponds to an HTTP request method. For example, `app.get()` for GET requests, `app.post()` for POST requests, and so on.
 
 2. **Basic Structure of a Route**:
-   A typical route includes a specific URL pattern and a callback function that handles the request and response.
+A typical route includes a specific URL pattern and a callback function that handles the request and response.
 
 ### Example of Routes Returning JSON
 
@@ -102,5 +105,10 @@ app.post('/api/users', (req, res) => {
 - **Clear Structure**: JSON allows you to structure data in a clear and nested way, making it easy to handle complex data.
 - **Ease of Use**: In Express.js, working with JSON is straightforward thanks to methods like `res.json()` and middleware like `express.json()`.
 
+### Example
+
+See implementation in `index.js`
+
 ## References
+
 https://expressjs.com/
