@@ -18,7 +18,7 @@ These operations are fundamental for managing data in most applications and are 
 
 ## Implementation
 
-See the code.
+See the code. `/routes` and `/services`
 
 ## References 
 
