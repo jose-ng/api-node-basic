@@ -56,7 +56,7 @@ _Note: Each module or section will be in a branch_
 1. [Module 1](Tutorial/Module-1)
     1. [Express basic concepts](Tutorial/Module-1/1_EXPRESS.md) `git checkout module-1/part-1`
     2. [RESTful API concepts](Tutorial/Module-1/2_RESTFUL.md) `git checkout module-1/part-1`
-    3. [Project structure](Tutorial/Module-1/3_STRUCTURE.md) `git checkout module-1/part-2`
+    3. [Project structure](Tutorial/Module-1/3_CLEAN_ARCHITECTURE.md) `git checkout module-1/part-2`
 
 # TODO
 
